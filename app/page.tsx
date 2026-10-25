@@ -116,7 +116,7 @@ function PromoVideoSection({ isDarkMode, lang }: { isDarkMode: boolean; lang: "a
               muted
               loop
               playsInline
-              poster="/logo.png"
+              poster="/Logo.png"
             >
               <source src="/heritage-transformation.mp4" type="video/mp4" />
               {lang === "ar" ? "متصفحك لا يدعم تشغيل هذا الفيديو." : "Your browser does not support HTML5 video."}
@@ -179,7 +179,7 @@ export default function LandingPage() {
     return () => clearInterval(timer);
   }, [typingPhrasesAr.length]);
 
-  const APP_LOGIN_URL = "http://localhost:3000/login"; 
+  const APP_LOGIN_URL = "/login";
 
   const toggleTheme = () => setIsDarkMode(!isDarkMode);
   const toggleLang = () => setLang(lang === "ar" ? "en" : "ar");
@@ -377,7 +377,7 @@ export default function LandingPage() {
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 flex items-center justify-center relative">
               <img 
-                src="/logo.png" 
+                src="/Logo.png" 
                 alt="Logo" 
                 className="w-10 h-10 object-contain drop-shadow-[0_0_12px_rgba(249,115,22,0.6)]" 
               />
@@ -1045,7 +1045,7 @@ export default function LandingPage() {
             
             <div className="space-y-3 md:col-span-1">
               <div className="flex items-center gap-3">
-                <img src="/logo.png" alt="Logo" className="w-8 h-8 object-contain" />
+                <img src="/Logo.png" alt="Logo" className="w-8 h-8 object-contain" />
                 <span className={`font-black text-base ${isDarkMode ? "text-white" : "text-slate-900"}`}>{t.appName}</span>
               </div>
               <p className="text-xs leading-relaxed">
