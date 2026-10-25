@@ -9,7 +9,6 @@ import {
   Loader2, 
   User, 
   CheckCircle2, 
-  Calendar, 
   Activity, 
   LogOut, 
   CreditCard, 
@@ -38,7 +37,7 @@ export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
-  const [isDarkMode, setIsDarkMode] = useState(false); // افتراضي نهاري لمعاينة الحدود بوضوح
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const [lang, setLang] = useState<"ar" | "en">("ar");
 
   const [userData, setUserData] = useState<any>(null);
@@ -53,6 +52,11 @@ export default function LoginPage() {
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<{ title: string; price: string } | null>(null);
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
+
+  // تحديث عنوان التبويب تلقائياً في المتصفح
+  useEffect(() => {
+    document.title = lang === "ar" ? "أقساطك | المنظومة المالية الذكية" : "Aqsatak | Financial System";
+  }, [lang]);
 
   const PAY_ZAINCASH = "07700000000"; 
   const PAY_MASTERCARD = "5358 0000 0000 0000";
@@ -105,7 +109,7 @@ export default function LoginPage() {
 
       let profileData: any = {
         email: user.email,
-        companyName: "قسطها",
+        companyName: "أقساطك",
         role: "user",
         status: "active",
         subscription: { period: "monthly", endDate: "2040-10-20", name: "الباقة الاحترافية" }
@@ -252,16 +256,15 @@ export default function LoginPage() {
         
         <div className="max-w-5xl mx-auto space-y-6">
           
-          {/* 1. الترويسة العلوية - تم إبراز الحدود والظلال */}
           <div className={`flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border p-6 rounded-3xl transition-all shadow-md ${
             isDarkMode ? "bg-[#111116] border-white/10" : "bg-white border-slate-300 shadow-slate-200/80"
           }`}>
             <div className="flex items-center gap-4">
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-orange-500 to-red-500 flex items-center justify-center shadow-lg shadow-orange-500/20">
-                <User className="w-8 h-8 text-white" />
+                <Shield className="w-8 h-8 text-white" />
               </div>
               <div>
-                <h1 className="text-xl font-black">{userData.companyName || "قسطها"}</h1>
+                <h1 className="text-xl font-black">{userData.companyName || "أقساطك"}</h1>
                 <p className={`text-xs font-mono mt-0.5 ${isDarkMode ? "text-gray-400" : "text-slate-500"}`} dir="ltr">{userData.email}</p>
               </div>
             </div>
@@ -309,7 +312,6 @@ export default function LoginPage() {
             </div>
           </div>
 
-          {/* 2. كروت الإحصائيات - تم تحديد الحدود والظلال بشكل باريز وضابط */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             
             <div className={`border p-5 rounded-3xl space-y-2 transition-all shadow-sm ${
@@ -347,7 +349,6 @@ export default function LoginPage() {
 
           </div>
 
-          {/* 3. كارت الاشتراك - تم تحديد الحدود الداخلية للكروت الفرعية */}
           <div className={`border p-6 rounded-3xl space-y-4 transition-all shadow-sm ${
             isDarkMode ? "bg-[#111116] border-white/10" : "bg-white border-slate-300 shadow-slate-200/60"
           }`}>
@@ -391,7 +392,6 @@ export default function LoginPage() {
             </div>
           </div>
 
-          {/* 4. كشف آخر الإضافات بالعقود - حدود بارزة وظليلة */}
           <div className={`border p-6 rounded-3xl space-y-4 transition-all shadow-sm ${
             isDarkMode ? "bg-[#111116] border-white/10" : "bg-white border-slate-300 shadow-slate-200/60"
           }`}>
@@ -442,7 +442,6 @@ export default function LoginPage() {
 
         </div>
 
-        {/* 💳 نافذة الترقية والمودال */}
         {showUpgradeModal && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md">
             <div className={`w-full max-w-lg rounded-3xl p-6 border space-y-6 relative shadow-2xl ${
