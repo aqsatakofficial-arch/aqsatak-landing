@@ -149,11 +149,10 @@ export default function LandingPage() {
 
   const CONTACT_PHONE = "+9647838338499";
   const CONTACT_PHONE_RAW = "9647838338499";
-  const CONTACT_EMAIL = "info@aqsatak.com";
+  const CONTACT_EMAIL = "aqsatakofficial@gmail.com";
   const LOCATION_AR = "بغداد، العراق";
   const LOCATION_EN = "Baghdad, Iraq";
 
-  const PAY_ZAINCASH = "07838338499"; 
   const PAY_SUPER_QI = "07838338499";
 
   const typingPhrasesAr = [

@@ -591,7 +591,7 @@ export default function LoginPage() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="husseinrahim775@gmail.com"
+                placeholder="aqsatak@gmail.com"
                 className={`w-full pl-4 pr-11 py-3.5 rounded-2xl border text-xs font-mono font-bold outline-none focus:border-orange-500 transition-all ${
                   isDarkMode 
                     ? "bg-white/5 border-white/10 text-white placeholder:text-gray-600" 
